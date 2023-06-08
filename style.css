@@ -1,66 +1,35 @@
- /* hero background image */
- 
-.navbar{
-    background-color: white;
-    height:10%;
+ html{
+    scroll-behavior: smooth;
 }
-.nav-lin{
-    
-    padding-right: 0.5rem;
-    padding-left: 3.5rem; 
-    font-weight: 600;
-    font-size:medium;
+.nav-link{ 
+    color:rgba(4, 60, 4, 0.791);
+    font-weight:bold;
+    font-size:20px;
     display: block;
-    color:black;
     text-decoration:none;
-   font-family: 'Dosis', sans-serif;
-    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
+    font-family:'Dosis', sans-serif;
 }
-.nav-lin:hover{
-    color:#074f07;
-    transition: all;
-
-}
-.navbar-brand:hover{
-    color:#074f07; 
-    
-}
-.btn:hover{
+.nav-link:hover{
     color:white;
-
+    background-color:#118d11;
+    border-radius:30px;
 }
-.navbar-brand {
-     
-    color:#074f07;
-    font-weight:700;
-    font-size:larger;
-}
-#about h1:hover{
+.navbar-toggler{
     color:rgba(4, 60, 4, 0.791);
 }
+.navbar-brand {
+    color:rgba(4, 60, 4, 0.791);
+    font-weight:bolder;
+    font-size:1.25rem;
+}
+.navbar-brand:hover{
+    color:#118d11;
+}
 .bgimage {
-    height:100vh;
-    background-image: url('images/bgimage.jpg');
- 
-    background-size:cover;
-    position:relative;
-}
-#about{
-    height:100vh;
-     
- 
-    background-size:cover;
-    position:relative;
-
-}
-/* text css above hero image*/
-
-.title2 {
-    font-weight: bold;
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
-}
-.post{
-    font-size: 1.5rem;
+    height: 100vh;
+    background-image: url(images/bgimage.jpg);
+    background-size: cover;
+    position: relative;
 }
 .text {
     text-align: center;
@@ -70,21 +39,58 @@
     transform: translate(-50%, -50%);
     color:rgba(4, 60, 4, 0.791);
 }
+.title2 {
+    font-weight: bold;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+.post{
+    font-size: 1.5rem;
+}
+.post:hover{
+    color:#0d9f0d
+}
 
-/* about section image css */
+#about h1{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color:rgba(4, 60, 4, 0.791);
+}
 .imageAboutPage {
-    width: 100%;
+    width:100%;
     object-fit: cover;
     border-radius: 50%;
-    height:61%;
+    height:80%;
+
 }
-/* services section css */
+
+
+#education h1{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color:rgba(4, 60, 4, 0.791);
+}
+#skills h1{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color:rgba(4, 60, 4, 0.791);
+}
+#projects h1{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color:rgba(4, 60, 4, 0.791);
+}
+#contact h1{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color:rgba(4, 60, 4, 0.791);
+}
+#footer h6{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color:rgba(4, 60, 4, 0.791);
+    font-weight: bold;
+    justify-content:center;
+}
 .servicesText.card {
     height: 280px;
     cursor: pointer;
-  }
+}
 .servicesIcon {
-    font-size: 36px;
+    font-size: 25px;
     text-align: center;
     width: 100%;
 }
@@ -94,16 +100,22 @@
 }
 .card:hover .servicesIcon {
     color: #008000;
+     
 }
 .servicesText:hover {
-    border: 1px solid #008000;
+    border: 2px solid #008000;
+    
 }
-  
+
 .image:hover {
     border: 2px solid #008000;
+    
+    
 }
 .image.card:hover{
     color: #008000;
+    
+    
 
 }
 
@@ -129,15 +141,33 @@ footer{
     text-align: center;
     
 }
-.social-icons{
+.social-icon{
     display: inline-block;
     margin-left: 2.5rem;
+    color:#158015;
     
 }
-.social-icons:hover{
+.social-icon:hover{
     transition: width 2s height 10s;
 }
-.fa-github:hover,.fa-instagram:hover,.fa-twitter:hover,.fa-linkedin:hover, .fa-hackerrank:hover {
-    color: #008000;
+.fa-github,.fa-instagram,.fa-twitter,.fa-linkedin, .fa-hackerrank {
+    color:#008000;
 }
+ 
+.fa-github:hover,.fa-instagram:hover,.fa-twitter:hover,.fa-linkedin:hover, .fa-hackerrank:hover {
+    color:aqua;
+}
+
+.navbar-transperent .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cline x1='2' y1='5' x2='28' y2='5' stroke='%23000' stroke-width='2'/%3E%3Cline x1='2' y1='14' x2='28' y2='14' stroke='%23000' stroke-width='2'/%3E%3Cline x1='2' y1='23' x2='28' y2='23' stroke='%23000' stroke-width='2'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    color:#008000;
+    width: 30px;
+    height: 30px;
+    border: none;
+}
+  
+ 
+ 
  
