@@ -9,6 +9,9 @@
     text-decoration:none;
     font-family:'Dosis', sans-serif;
 }
+.form-control:hover{
+    border: 2px solid #008000;
+}
 .nav-link:hover{
     color:white;
     background-color:#118d11;
