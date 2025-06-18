@@ -1,0 +1,99 @@
+.experience-section {
+  padding: 60px 20px;
+  background-color: var(--bg); 
+  color: #2e7d32; 
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.experience-section h2 {
+  font-size: 32px;
+  color: var(--primary2);
+  text-align: center;
+  margin: 40px 0 20px;
+}
+
+.timeline-container {
+  position: relative;
+  margin-left: 20px;
+  padding-left: 20px;
+  border-left: 3px solid rgb(69, 166, 69); 
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -11px;
+  top: 5px;
+  width: 18px;
+  height: 18px;
+  background-color: #66bb6a; 
+  border-radius: 50%;
+  border: 2px solid #2e7d32;
+}
+
+.timeline-content {
+  margin-left: 20px;
+}
+
+.timeline-year {
+  font-size: 14px;
+  color: var(--hover2);
+}
+
+.timeline-content h3 {
+  margin: 5px 0 0;
+  font-size: 20px;
+  color: var(--primary);
+}
+
+.timeline-content h4 {
+  margin: 3px 0 8px;
+  font-size: 16px;
+  color:var(--sub);
+}
+
+.timeline-content p {
+  font-size: 15px;
+  font-weight: 450;
+  color: var(--about);
+}
+
+.grade {
+  display: inline-block;
+  margin-top: 5px;
+  padding: 4px 10px;
+  background-color: var(--primary); 
+  color: var(--bg);
+  border-radius: 12px;
+  font-size: 13px;
+}
+
+.experience-flex-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.timeline-container {
+  flex: 1;
+  min-width: 280px;
+}
+
+.experience-bg-image {
+  flex: 1;
+  min-width: 250px;
+  min-height: 350px;
+  
+  background-image: url('../assets/work.jpg'); /* <- your image path */
+  background-size: cover;
+  background-position: center right;
+  background-repeat: no-repeat;
+ 
+}
+ 

@@ -1,0 +1,28 @@
+ 
+/* light theme */
+:root {
+
+  --bg: white;
+  --primary: #2e7d32;
+  --primary2:rgb(9, 108, 9);
+  --sub:rgb(69, 166, 69);
+   --text:rgb(22, 61, 22);
+
+  --p2: #43a047;
+  --b2:rgb(7, 113, 7);
+
+  --hover: rgb(42, 172, 42);
+  --hover2:rgb(12, 81, 12);
+
+  --about:black;
+  --footerbg: rgb(160, 225, 160);
+  
+  
+}
+/* Dark theme */
+[data-theme='dark']{
+  --hero-overlay: rgba(199, 237, 211, 0.7); 
+
+
+   
+}
