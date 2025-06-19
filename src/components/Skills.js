@@ -47,8 +47,8 @@ function Skills() {
 
   return (
     <section id="skills" className="skills-section">
-      <h2 data-aos="fade-up">Skills</h2>
-
+      <h1 data-aos="fade-up">Skills</h1>
+      <br></br><br></br>
       {/* Row 1 */}
       <div className="skills-marquee-wrapper">
         <div className="skills-marquee-track scroll-left">

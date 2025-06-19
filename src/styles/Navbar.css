@@ -74,7 +74,7 @@
     height: 100vh;
     width: 75%;
     max-width: 300px;
-    background-color: var(--b2);
+    background-color: white;
     flex-direction: column;
     padding: 2rem 1.5rem;
     gap: 1.5rem;
@@ -86,11 +86,20 @@
   .navbar-links.active {
     right: 0;
   }
+.navbar-links a.active,
+.navbar-links a:hover {
+  background-color: var(--primary);
+  color: var(--bg);
+  font-weight: 600;
+}
 
   .navbar-links a {
     font-size: 1.2rem;
     text-align: left;
     width: 100%;
+  background-color: #9cda9c;
+  color: var(--primary);
+  
   }
 
   .menu-toggle {

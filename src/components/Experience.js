@@ -61,6 +61,7 @@ function Experience() {
   return (
     <section id="experience" className="experience-section">
       <h2 data-aos="fade-up">Experience</h2>
+      <br></br><br></br>
 
       <div className="experience-flex-container">
         <div className="timeline-container">{renderTimeline(experienceData)}</div>
@@ -69,6 +70,7 @@ function Experience() {
 
 
       <h2 data-aos="fade-up">Academic Journey</h2>
+      <br></br><br></br>
       <div className="timeline-container">{renderTimeline(educationData, true)}</div>
     </section>
   );

@@ -13,7 +13,7 @@ function Projects() {
       title: 'Traffic Voilation Monitoring',
       image: require('../assets/project2.jpg'),
       description: 'This system automatically issues e-challans to violators by identifying traffic violations.',
-      tags: ['Machine Learning', 'MERN', 'Twilio Messaging API'],
+      tags: [],
       github: 'https://github.com/nishithamakam/TrafficVoilationMonitoring',
       demo: '#'
     },
@@ -21,7 +21,7 @@ function Projects() {
       title: 'Cosmic Challenge - NASA Space Apps Challenge 2023',
       image: require('../assets/cosmicchallenge.jpeg'),
       description: 'A web application aimed at educating users about the James Webb Space Telescope (JWST)',
-      tags: ['JavaScript'],
+      tags: [],
       github: 'https://github.com/Aish-1311/CosmicChallenge',
       demo: '#'
     },
@@ -29,15 +29,15 @@ function Projects() {
       title: 'Counselling Automation',
       image: require('../assets/counsellingautomationsite.jpg'),
       description: 'A web application that simplifies counseling processes and enhances student support through performance analysis and appointment management',
-      tags: ['Django', 'JavaScript'],
+      tags: [],
       github: 'https://github.com/nishithamakam/Counselling-Automation',
       demo: '#'
     },
      {
       title: 'Portfolio Website',
        image: require('../assets/project1.png'),
-      description: 'My own responsive portfolio with animations, built with React and CSS.',
-      tags: ['React', 'Responsive Design'],
+      description: 'This project features my portfolio website which is a reflection of me.',
+      tags: [],
       github: 'https://github.com/nishithamakam/Portfolio',
       demo: 'https://nishithamakam.github.io/Portfolio/'
     },
@@ -47,6 +47,7 @@ function Projects() {
   return (
     <section id="projects" className="projects-section">
       <h2 data-aos="fade-up">Projects</h2>
+      <br></br><br></br>
       <div className="projects-grid">
         {projectList.map((project, index) => (
           <div className="project-card" key={index} data-aos="fade-up" data-aos-delay={index * 100}>
@@ -60,8 +61,9 @@ function Projects() {
                 ))}
               </div>
               <div className="project-links">
-                <a href={project.demo} target="_blank" rel="noreferrer">Live Demo</a>
-                <a href={project.github} target="_blank" rel="noreferrer">GitHub</a>
+                 <button onClick={() => window.open(project.demo, "_blank")}>Live Demo</button>
+                 <button onClick={() => window.open(project.github, "_blank")}>GitHub</button>
+                
               </div>
             </div>
           </div>

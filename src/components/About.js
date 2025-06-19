@@ -14,6 +14,7 @@ function About() {
         </div>
         <div className="about-text">
           <h2>About Me</h2>
+          <br></br>
           <p>
             I'm Nishitha, a passionate software engineer with a love for clean design, intuitive UX, and responsive interfaces.
             I enjoy turning ideas into reality through elegant code. Whether it's building engaging websites or refining UI/UX,

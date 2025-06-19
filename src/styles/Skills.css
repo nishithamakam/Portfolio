@@ -7,8 +7,9 @@
   z-index: 1;
 }
 
-.skills-section h2 {
-  font-size: 36px;
+.skills-section h1 {
+  font-size: 35px;
+   font-family: 'Segoe UI', sans-serif;
   margin-bottom: 40px;
   color:var(--primary);
 }
