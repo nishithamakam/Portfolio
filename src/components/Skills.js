@@ -1,12 +1,14 @@
 import React, { useEffect } from 'react';
 import '../styles/Skills.css';
-import {
-  FaReact, FaNodeJs, FaDatabase, FaHtml5, FaCss3Alt, FaJsSquare,
-  FaBootstrap, FaGitAlt, FaJava, FaPython 
-} from 'react-icons/fa';
-import {SiMongodb, SiExpress, SiMysql, SiC, SiCplusplus, 
-  SiDjango
- } from 'react-icons/si';
+import {FaReact, FaNodeJs, FaDatabase, FaHtml5, FaCss3Alt, FaJsSquare,FaBootstrap, FaGitAlt, FaJava, FaPython } from 'react-icons/fa';
+
+import {SiMongodb, SiExpress, SiMysql, SiC, SiCplusplus, SiDjango} from 'react-icons/si';
+
+import {SiTerraform } from 'react-icons/si';
+import {FaAws } from 'react-icons/fa';
+
+import { FaChartBar } from 'react-icons/fa';
+
 
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -28,20 +30,31 @@ function Skills() {
     { icon: <FaJsSquare color="#f7df1e" />, name: 'JavaScript' },
     { icon: <FaReact color="#61DBFB" />, name: 'React' },
 
+    { icon: <FaBootstrap color="#7952B3" />, name: 'Bootstrap' },
+    { icon: <FaGitAlt color="#F05032" />, name: 'Git' },
+
+    { icon: <FaDatabase color="#F2C811" />, name: 'Power BI' },
+    { icon: <FaChartBar color="#E97627" />, name: 'Tableau' },
+
+   
+
    
   ];
 
   const skillsRow2 = [
 
-    { icon: <FaBootstrap color="#7952B3" />, name: 'Bootstrap' },
+   
     { icon: <SiMysql color="#00758F" />, name: 'MySQL' },
     { icon: <FaDatabase color="#f39c12" />, name: 'DBMS' },
-    { icon: <FaGitAlt color="#F05032" />, name: 'Git' },
    
     { icon: <SiDjango color="#092E20" />, name: 'Django' },
     { icon: <FaNodeJs color="#3C873A" />, name: 'Node.js' },
     { icon: <SiExpress color="#000000" />, name: 'Express.js' },
     { icon: <SiMongodb color="#4DB33D" />, name: 'MongoDB' },
+
+    { icon: <FaAws color="#FF9900" />, name: 'AWS' },
+    { icon: <SiTerraform color="#623CE4" />, name: 'Terraform' },
+     
  
   ];
 

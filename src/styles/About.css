@@ -14,8 +14,8 @@
 }
 
 .about-image img {
-  width: 240px;
-  height: 250px;
+  width: 260px;
+  height: 290px;
   object-fit: cover;
   border-radius: 50%;
   border: 1px solid var(--primary);

@@ -16,9 +16,10 @@ function About() {
           <h2>About Me</h2>
           <br></br>
           <p>
-            I'm Nishitha, a passionate software engineer with a love for clean design, intuitive UX, and responsive interfaces.
-            I enjoy turning ideas into reality through elegant code. Whether it's building engaging websites or refining UI/UX,
-            I aim to craft seamless digital experiences.
+            I'm Nishitha, a passionate software engineer who loves crafting clean, efficient, and responsive web applications.
+            I enjoy turning ideas into reality through elegant, scalable code——Whether it's building dynamic frontend interfaces or robust backend systems.
+            My goal is to create seamless and impactful digital solutions from end to end.
+
           </p>
           <p>
             With a foundation in modern web technologies, I'm continuously learning and exploring new trends to stay updated.

@@ -13,6 +13,7 @@ function Projects() {
       title: 'Traffic Voilation Monitoring',
       image: require('../assets/project2.jpg'),
       description: 'This system automatically issues e-challans to violators by identifying traffic violations.',
+       
       tags: [],
       github: 'https://github.com/nishithamakam/TrafficVoilationMonitoring',
       demo: '#'

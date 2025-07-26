@@ -3,6 +3,7 @@ import './App.css';
 
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+
 import About from './components/About';
 import Experience from './components/Experience';
 import Skills from './components/Skills';
@@ -18,6 +19,8 @@ function App() {
       <Navbar />
       <Hero/>
       <br></br>
+      <br></br>
+ 
       <About/>
       <Experience/>
       <Skills/>

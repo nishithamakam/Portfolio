@@ -10,9 +10,14 @@ function Experience() {
   }, []);
 
   const experienceData = [
-    
+
     {
-      
+      year: 'July 2025 - Present',
+      title: 'Associate Software Engineer',
+      company: 'Bristol Myers Squibb',
+      description: "    "
+    } ,
+    {
       year: 'June 2024 - August 2024',
       title: 'DevOps/SRE Intern',
       company: 'S&P Global',
