@@ -3,6 +3,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { FiEye } from 'react-icons/fi';
 import '../styles/Contact.css';
+import emailjs from 'emailjs-com';
 
 function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
@@ -18,9 +19,23 @@ function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Add your form submission logic here (like emailjs or backend API)
-    console.log("Form Submitted", formData);
-    setFormData({ name: '', email: '', message: '' });
+    
+     emailjs.send(
+      'service_wb8zcvo',
+      'template_8vg14zs',
+      formData,
+      'QpUi2gTmUK8ETrwqE'
+    ).then(
+      (result) => {
+        console.log('Email successfully sent!', result.text);
+        alert('Message sent successfully!');
+        setFormData({ name: '', email: '', message: '' });
+      },
+      (error) => {
+        console.log('Failed to send email:', error.text);
+        alert('Failed to send message. Please try again later.');
+      }
+    );
   };
 
   return (

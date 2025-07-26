@@ -2,7 +2,7 @@ import React from 'react';
 import '../styles/About.css';
 
 import profilePic from '../assets/profile.jpg';
-
+import { FaLinkedin } from 'react-icons/fa';
 
 
 function About() {
@@ -25,7 +25,12 @@ function About() {
             With a foundation in modern web technologies, I'm continuously learning and exploring new trends to stay updated.
             I thrive in creative environments and love collaborating with others to bring projects to life.
           </p>
-          <a href="/resume.pdf" download className="download-cv btn">Download CV</a>           
+           <a href="/NishithaMakam_resume.pdf" download className="download-cv btn">Download CV</a>     
+           
+
+               
+
+          
 
         </div>
       </div>
