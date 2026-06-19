@@ -1,48 +1,54 @@
-import React, { useContext } from 'react';
-import { ThemeContext } from '../ThemeContext';
+import React, { useState, useEffect } from 'react';
 import '../styles/Navbar.css';
-import '@fortawesome/fontawesome-free/css/all.min.css';
 
-
-import { useState } from 'react';
-import { useEffect } from 'react';
-
+const links = [
+  { href: '#about', label: 'About' },
+  { href: '#experience', label: 'Experience' },
+  { href: '#skills', label: 'Skills' },
+  { href: '#projects', label: 'Projects' },
+  { href: '#contact', label: 'Contact' },
+];
 
 function Navbar() {
-  const { theme, toggleTheme } = useContext(ThemeContext);
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  const toggleMenu = () => setMenuOpen(!menuOpen);
+  const toggleMenu = () => setMenuOpen(prev => !prev);
+  const closeMenu = () => setMenuOpen(false);
+
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
+    const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
-     <header className={`navbar ${scrolled ? 'scrolled' : ''}`}>
-      <div className="navbar-logo">
-         <i className="fas fa-link logo-icon"></i> Growth
-      </div>
+    <header className={`navbar ${scrolled ? 'scrolled' : ''}`}>
+      <a href="#hero" className="navbar-logo" onClick={closeMenu} aria-label="Nishitha Makam">
+        <span className="logo-mark">
+          <span className="logo-n">N</span><span className="logo-m">M</span>
+        </span>
+      </a>
 
       <nav className={`navbar-links ${menuOpen ? 'active' : ''}`}>
-        <a href="#hero" onClick={toggleMenu}>Home</a>
-        <a href="#about" onClick={toggleMenu}>About</a>
-        <a href="#skills" onClick={toggleMenu}>Skills</a>
-         <a href="#experience" onClick={toggleMenu}>Experience</a>
-        <a href="#projects" onClick={toggleMenu}>Projects</a>
-        <a href="#contact" onClick={toggleMenu}>Contact</a>
+        {links.map((link, i) => (
+          <a key={link.href} href={link.href} onClick={closeMenu}>
+            <span className="link-num">{String(i + 1).padStart(2, '0')}</span>
+            <span className="link-label">{link.label}</span>
+          </a>
+        ))}
       </nav>
-      {menuOpen && <div className="overlay" onClick={toggleMenu}></div>}
+
+      {menuOpen && <div className="overlay" onClick={closeMenu}></div>}
+
       <div className="navbar-icons">
-         {/*<button onClick={toggleTheme} className="theme-toggle">
-          {theme === 'light' ? '☀️' : '🌙'}
-        </button>*/}
-        <button className="menu-toggle" onClick={toggleMenu}>
-          ☰
+        <button
+          className={`menu-toggle ${menuOpen ? 'is-open' : ''}`}
+          onClick={toggleMenu}
+          aria-label="Toggle menu"
+        >
+          <span></span>
+          <span></span>
         </button>
       </div>
     </header>
@@ -50,4 +56,3 @@ function Navbar() {
 }
 
 export default Navbar;
- 

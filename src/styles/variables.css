@@ -1,28 +1,37 @@
- 
 /* light theme */
 :root {
+  --bg: #ffffff;
+  --surface: #fafaf8;
+  --surface-alt: #f4f4ef;
+  --border: rgba(0, 0, 0, 0.08);
+  --border-strong: rgba(0, 0, 0, 0.15);
 
-  --bg: white;
-  --primary: #2e7d32;
-  --primary2:rgb(9, 108, 9);
-  --sub:rgb(69, 166, 69);
-   --text:rgb(22, 61, 22);
+  --primary: #1e5a26;
+  --primary2: rgb(9, 108, 9);
+  --sub: rgb(69, 166, 69);
+  --text: #1a1a1a;
+  --muted: rgba(26, 26, 26, 0.6);
+  --faint: rgba(26, 26, 26, 0.4);
 
   --p2: #43a047;
-  --b2:rgb(7, 113, 7);
+  --b2: rgb(7, 113, 7);
 
   --hover: rgb(42, 172, 42);
-  --hover2:rgb(12, 81, 12);
+  --hover2: rgb(12, 81, 12);
 
-  --about:black;
-  --footerbg: rgb(160, 225, 160);
-  
-  
+  --about: #1a1a1a;
+  --about2: #1a1a1a;
+  --footerbg: #fafaf8;
+
+  --hero-overlay: rgba(255, 255, 255, 0.78);
+
+  /* layout tokens */
+  --section-pad-y: clamp(3rem, 6vw, 5.5rem);
+  --section-pad-x: clamp(1.5rem, 5vw, 4.5rem);
+  --container-max: 1280px;
 }
+
 /* Dark theme */
 [data-theme='dark']{
-  --hero-overlay: rgba(199, 237, 211, 0.7); 
-
-
-   
+  --hero-overlay: rgba(199, 237, 211, 0.7);
 }

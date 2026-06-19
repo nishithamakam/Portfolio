@@ -1,82 +1,127 @@
-import React, { useEffect } from 'react';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import React from 'react';
 import '../styles/Experience.css';
- 
+import { Reveal } from '../hooks/useReveal';
+import { FaGraduationCap, FaBook, FaStar, FaMapMarkerAlt, FaRegCalendarAlt } from 'react-icons/fa';
 
 function Experience() {
-  useEffect(() => {
-    AOS.init({ duration: 1000 });
-  }, []);
-
   const experienceData = [
-
     {
-      year: 'July 2025 - Present',
+      year: 'Jul 2025 — Present',
       title: 'Associate Software Engineer',
       company: 'Bristol Myers Squibb',
-      description: "    "
-    } ,
+      tech: ['Langchain', 'LLMs', 'Python', 'React.js']
+    },
     {
-      year: 'June 2024 - August 2024',
-      title: 'DevOps/SRE Intern',
+      year: 'Jun 2024 — Aug 2024',
+      title: 'DevOps / SRE Intern',
       company: 'S&P Global',
-      description: "Designed and deployed CI/CD pipelines and a 3-tier architecture on AWS (IIS-hosted app), enhancing cloud automation and infrastructure skills with hands-on use of core AWS services."
-    } 
+      bullets: [
+        'Designed and deployed CI/CD pipelines and a 3-tier architecture on AWS (IIS-hosted app), enhancing cloud automation and infrastructure skills with hands-on use of core AWS services.'
+      ],
+      tech: ['Python', 'AWS', 'CI/CD', 'Terraform']
+    }
   ];
 
   const educationData = [
     {
-      year: '2021 - 2025',
-      degree: 'Bachelor of Technology',
+      icon: <FaGraduationCap />,
+      degree: 'Bachelor of Technology, Computer Science',
       institute: 'G. Narayanamma Institute of Technology and Science',
-       description: 'Specialized in Computer Science',
-      grade: 'CGPA: 9.5/10'
+      grade: 'GPA: 9.5 / 10.0',
+      year: '2021 — 2025',
+      location: 'Hyderabad, India'
     },
     {
-      year: '2019 - 2021',
+      icon: <FaBook />,
       degree: 'Senior Secondary',
       institute: 'Sri Gayathri Junior College',
-      description: 'Specialized in PCM stream.',
-      grade: 'Percentage: 99.2%'
-    },
-    {
-      year: '2011 - 2019',
-      degree: 'Secondary School',
-      institute: 'Krishnaveni Talent School',
-       
-      grade: 'GPA: 9.8/10'
+      grade: 'Grade: 99.2%',
+      year: '2019 — 2021',
+      location: 'Hyderabad, India'
     }
   ];
 
-  const renderTimeline = (data, isEducation = false) =>
-    data.map((item, index) => (
-      <div key={index} className="timeline-item" data-aos="fade-up">
-        <div className="timeline-dot" />
-        <div className="timeline-content">
-          <span className="timeline-year">{item.year}</span>
-          <h3>{isEducation ? item.degree : item.title}</h3>
-          <h4>{isEducation ? item.institute : item.company}</h4>
-          <p>{item.description}</p>
-          {isEducation && <span className="grade">{item.grade}</span>}
+  const renderRow = (item, idx, isEducation) => (
+    <Reveal className="timeline-row" delay={String((idx % 4) + 1)} key={idx}>
+      <span className="timeline-dot" aria-hidden="true" />
+      <span className="timeline-year">{item.year}</span>
+      <div className="timeline-main">
+        <h3>{isEducation ? item.degree : item.title}</h3>
+        <h4>{isEducation ? item.institute : item.company}</h4>
+        {item.description && <p>{item.description}</p>}
+        {item.bullets && (
+          <ul className="timeline-bullets">
+            {item.bullets.map((b, i) => (
+              <li key={i}>{b}</li>
+            ))}
+          </ul>
+        )}
+        {item.tech && (
+          <div className="timeline-tags">
+            {item.tech.map((t, i) => (
+              <span className="timeline-tag" key={i}>{t}</span>
+            ))}
+          </div>
+        )}
+        {isEducation && <span className="timeline-grade">{item.grade}</span>}
+      </div>
+    </Reveal>
+  );
+
+  const renderEduCard = (item, idx) => (
+    <Reveal className="edu-card" delay={String((idx % 2) + 1)} key={idx}>
+      <span className="edu-card-icon" aria-hidden="true">{item.icon}</span>
+      <div className="edu-card-body">
+        <h3 className="edu-card-degree">{item.degree}</h3>
+        <h4 className="edu-card-institute">{item.institute}</h4>
+        <div className="edu-card-meta">
+          <span className="edu-card-grade">
+            <FaStar aria-hidden="true" /> {item.grade}
+          </span>
+        </div>
+        <div className="edu-card-meta edu-card-meta--sub">
+          <span className="edu-card-year">
+            <FaRegCalendarAlt aria-hidden="true" /> {item.year}
+          </span>
+          <span className="edu-card-location">
+            <FaMapMarkerAlt aria-hidden="true" /> {item.location}
+          </span>
         </div>
       </div>
-    ));
+    </Reveal>
+  );
 
   return (
     <section id="experience" className="experience-section">
-      <h2 data-aos="fade-up">Experience</h2>
-      <br></br><br></br>
+      <div className="experience-inner">
+        <header className="section-header">
+          <span className="section-eyebrow">
+            <span className="section-line" aria-hidden="true" /> Experience
+          </span>
+        </header>
 
-      <div className="experience-flex-container">
-        <div className="timeline-container">{renderTimeline(experienceData)}</div>
-        <div className="experience-bg-image" data-aos="zoom-in" />
-    </div>
+        <div className="experience-block">
+          <Reveal className="experience-block-header">
+            <h3 className="experience-block-title">
+              <em>Work</em> &nbsp;Experience
+            </h3>
+          </Reveal>
+          <div className="timeline">
+            {experienceData.map((item, idx) => renderRow(item, idx, false))}
+          </div>
+        </div>
 
-
-      <h2 data-aos="fade-up">Academic Journey</h2>
-      <br></br><br></br>
-      <div className="timeline-container">{renderTimeline(educationData, true)}</div>
+        <div className="experience-block">
+          <Reveal className="experience-block-header">
+            <h3 className="experience-block-title">
+              <em>Academic</em> &nbsp;Background
+            </h3>
+          </Reveal>
+          <div className="edu-grid">
+            {educationData.map((item, idx) => renderEduCard(item, idx))}
+          </div>
+        </div>
+      </div>
     </section>
   );
 }

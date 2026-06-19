@@ -1,72 +1,248 @@
 .about {
-  padding: 4rem 1.5rem;
+  padding: 0 var(--section-pad-x) var(--section-pad-y);
   background-color: var(--bg);
-  color: var(--about);
-  transition: background-color 0.3s, color 0.3s;
+  color: var(--text);
 }
 
-.about-container {
+.about-inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+
+/* ---------- Editorial cover ---------- */
+.about-cover {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr clamp(300px, 42vw, 520px);
+  gap: clamp(2rem, 6vw, 5rem);
+  align-items: stretch;
+  margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+/* left column: text pinned to top, stats pinned to bottom */
+.about-col {
   display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  gap: 2rem;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0;
 }
 
-.about-image img {
-  width: 260px;
-  height: 290px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 1px solid var(--primary);
+.about-display {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: clamp(3rem, 8vw, 7rem);
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  color: var(--primary);
+  margin: 0;
 }
 
-.about-text {
-  max-width: 600px;
+.about-display-line em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--sub);
 }
 
-.about-text h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-   font-family: 'Segoe UI', sans-serif;
+.about-display-line {
+  display: block;
+}
+
+.about-display-line--alt {
+  padding-left: clamp(1.5rem, 4vw, 4rem);
   color: var(--primary);
 }
 
-.about-text p {
-  line-height: 1.6;
-  margin-bottom: 1rem;
-  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+.about-portrait {
+  position: relative;
+  align-self: start;
+  justify-self: end;
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  z-index: 2;
+  animation: about-float 6s ease-in-out infinite;
 }
 
-.download-cv.btn {
-  margin-top: 1.5rem;
-  display: inline-block;
-  padding: 0.7rem 1.5rem;
-  background: var(--primary);
-  color: var(--bg);
-  border-radius: 30px;
+.about-portrait::before {
+  content: '';
+  position: absolute;
+  inset: -14px;
+  border: 1px solid var(--border);
+  border-radius: inherit;
+  opacity: 0.7;
+  pointer-events: none;
+  z-index: -1;
+}
+
+@keyframes about-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+.about-portrait img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: clamp(420px, 48vw, 600px);
+  object-fit: contain;
+  filter: grayscale(15%) contrast(1.02);
+  transition: filter 0.6s ease, transform 0.8s ease;
+}
+.about-portrait:hover img { filter: none; transform: scale(1.03); }
+
+.about-portrait-tag {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  padding: 0.45rem 0.7rem;
+  background: var(--bg);
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+}
+
+/* ---------- Body + aside ---------- */
+.about-body-grid {
+  display: grid;
+  grid-template-columns: 7fr 5fr;
+  gap: clamp(2rem, 6vw, 5rem);
+  align-items: start;
+}
+
+.about-body {
+  max-width: 56ch;
+}
+
+.about-body p {
+  font-family: var(--font-sans);
+  font-size: clamp(1rem, 1.25vw, 1.15rem);
+  font-weight: 300;
+  line-height: 1.45;
+  letter-spacing: -0.015em;
+  color: var(--text);
+  margin-bottom: 0.7rem;
+}
+
+.about-lede {
+  font-family: var(--font-serif) !important;
+  font-style: italic;
+  font-weight: 400 !important;
+  font-size: clamp(1.25rem, 1.7vw, 1.6rem) !important;
+  line-height: 1.25 !important;
+  color: var(--primary) !important;
+  letter-spacing: -0.02em !important;
+  margin-bottom: 0.85rem !important;
+}
+
+.about-signature {
+  margin-top: 1.75rem;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(1.5rem, 2.4vw, 2.1rem);
+  color: var(--sub);
+  letter-spacing: -0.01em;
+  border-top: 1px solid var(--border);
+  padding-top: 1.25rem;
+  max-width: 18ch;
+}
+
+.about-aside {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  margin-bottom: 0;
+}
+
+.about-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  padding: 1.1rem 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.about-stats > div {
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.about-stats > div:hover {
+  transform: translateY(-4px);
+}
+
+.about-stat-num {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: clamp(1.3rem, 2vw, 1.7rem);
+  font-weight: 300;
+  letter-spacing: -0.04em;
+  color: var(--primary);
+  line-height: 1;
+}
+.about-stat-num em {
+  font-family: var(--font-serif);
+  font-style: italic;
   font-weight: 500;
-  transition: background 0.3s ease;
+  color: var(--sub);
+}
+.about-stat-label {
+  display: block;
+  margin-top: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
 }
 
-.download-cv.btn:hover {
-  background:var(--hover);
+.download-cv {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  background: var(--sub);
+  color: var(--bg);
+  border-radius: 999px;
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: background 0.3s ease, transform 0.2s ease;
 }
+.download-cv:hover { background: var(--primary); transform: translateY(-1px); }
+.download-cv { will-change: transform; }
+.download-cv:hover { letter-spacing: 0.18em; }
 
- 
-
-.reveal {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: revealUp 0.6s forwards;
-}
-
- 
-
-@keyframes revealUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .about-cover {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .about-col { order: 2; gap: 2rem; }
+  .about-portrait {
+    order: 1;
+    width: 60%;
+    justify-self: center;
+    margin: 0 auto;
+    animation: none;
   }
 }
- 
+
+@media (max-width: 600px) {
+  .about-portrait { width: 80%; }
+  .about-stats { gap: 1rem; }
+  .about-stat-num { font-size: 1.5rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-portrait { animation: none; }
+}

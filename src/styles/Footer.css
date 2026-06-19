@@ -1,21 +1,45 @@
 .footer {
-  background: var(--bg);
-  color: var(--about);
+  background: var(--primary);
+  color: rgba(255, 255, 255, 0.85);
   padding: 2rem 1rem;
   text-align: center;
   border-top: 1px solid var(--border);
   position: relative;
-  background-color: var(--footerbg);
 }
-.footer h3{
-  color: var(--primary)
+
+.footer-title {
+  color: #ffffff;
+  position: relative;
+  display: inline-block;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  letter-spacing: -0.02em;
 }
+
+.footer-title::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -0.5rem;
+  width: 0;
+  height: 2px;
+  background: var(--sub);
+  transform: translateX(-50%);
+  transition: width 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.3s;
+}
+.footer-title.is-visible::after {
+  width: 2.5rem;
+}
+
 .footer-content {
   display: flex;
   flex-direction: column;
   gap: 1rem;
   align-items: center;
   justify-content: center;
+  margin-top: 2rem;
 }
 
 .footer-icons {
@@ -25,36 +49,111 @@
 }
 
 .footer-icons a {
-  color: var(--primary);
-  transition: transform 0.3s, color 0.3s;
+  color: rgba(255, 255, 255, 0.85);
+  transition: color 0.3s ease, filter 0.3s ease;
+}
+.footer-icons a svg {
+  display: block;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .footer-icons a:hover {
-  color: var(--hover);
-  transform: scale(1.2);
+  color: #ffffff;
+  filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.28));
+}
+.footer-icons a:hover svg {
+  transform: translateY(-5px) scale(1.1);
 }
 
-.scroll-top {
+/* gentle staggered float-in on the icons when footer scrolls into view */
+.footer-icons.is-visible a {
+  animation: footer-icon-in 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: calc(var(--i) * 0.1s);
+}
+
+@keyframes footer-icon-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.footer-copy {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.footer-heart {
+  display: inline-block;
+  margin-left: 0.25rem;
+  animation: footer-heartbeat 1.6s ease-in-out infinite;
+}
+
+@keyframes footer-heartbeat {
+  0%, 100% { transform: scale(1); }
+  15% { transform: scale(1.25); }
+  30% { transform: scale(1); }
+  45% { transform: scale(1.18); }
+  60% { transform: scale(1); }
+}
+
+/* ---------- Back to top (top right) ---------- */
+.footer-top {
   position: absolute;
-  top: 11px;
-  right: 2rem;
-  background: var(--primary);
+  top: 1.5rem;
+  right: clamp(1rem, 4vw, 2.5rem);
+  z-index: 5;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  -webkit-appearance: none;
+  appearance: none;
+  background: none;
   border: none;
-  border-radius: 50%;
-  padding: 0.5rem;
-  color:var(--bg);
-  font-size: 1.2rem;
+  outline: none;
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
   cursor: pointer;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
-  transition: background 0.3s;
+  color: rgba(255, 255, 255, 0.6);
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.16em;
+  text-transform: lowercase;
+  transition: color 0.3s ease;
 }
 
-.scroll-top:hover {
-  background: var(--hover2);
+.footer-top:hover,
+.footer-top:focus,
+.footer-top:active,
+.footer-top:focus-visible {
+  background: none;
+  border: none;
+  outline: none;
+  box-shadow: none;
 }
 
-@media (max-width: 600px) {
-  .scroll-top {
-    right: 1rem;
-  }
+.footer-top:hover {
+  color: #ffffff;
 }
+
+.footer-top-arrow {
+  display: inline-flex;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.footer-top:hover .footer-top-arrow {
+  transform: translateY(-3px);
+}
+
+.footer-top-label {
+  opacity: 0.8;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .footer-icons.is-visible a { animation: none; }
+  .footer-icons a:hover svg { transform: none; }
+  .footer-top:hover .footer-top-arrow { transform: none; }
+  .footer-heart { animation: none; }
+}
+

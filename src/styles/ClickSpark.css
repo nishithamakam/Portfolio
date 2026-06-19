@@ -1,0 +1,58 @@
+.click-spark-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.click-spark {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 0;
+}
+
+.click-spark-dot,
+.click-spark-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.click-spark-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--sub);
+  opacity: 0;
+  animation: click-dot 1.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.click-spark-ring {
+  width: 8px;
+  height: 8px;
+  border: 2px solid var(--sub);
+  opacity: 0.9;
+  animation: click-ring 1.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes click-dot {
+  0% { opacity: 0.9; transform: translate(-50%, -50%) scale(0.4); }
+  40% { opacity: 0.9; transform: translate(-50%, -50%) scale(1); }
+  100% { opacity: 0; transform: translate(-50%, -50%) scale(0.7); }
+}
+
+@keyframes click-ring {
+  0% { opacity: 0.85; transform: translate(-50%, -50%) scale(0.4); }
+  100% { opacity: 0; transform: translate(-50%, -50%) scale(5); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .click-spark-dot,
+  .click-spark-ring {
+    animation-duration: 0.01ms;
+    opacity: 0;
+  }
+}

@@ -1,134 +1,200 @@
 .navbar {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 1000;
-  background: linear-gradient(to right, #135717, var(--p2));
-  padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: all 0.3s ease;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1.1rem clamp(1.5rem, 5vw, 4.5rem);
+  background: transparent;
+  transition: background 0.35s ease, padding 0.35s ease, border-color 0.35s ease, backdrop-filter 0.35s ease;
+  border-bottom: 1px solid transparent;
 }
 
 .navbar.scrolled {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.78);
+  -webkit-backdrop-filter: saturate(180%) blur(14px);
+  backdrop-filter: saturate(180%) blur(14px);
+  border-bottom-color: var(--border);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1), 0 2px 6px rgba(0, 0, 0, 0.06);
+  padding: 0.7rem clamp(1.5rem, 5vw, 4.5rem);
 }
 
+/* ---------- Logo ---------- */
 .navbar-logo {
-  font-size: 1.8rem;
-  font-weight: bold;
-  color:var(--bg);
-   display: flex;
+  display: inline-flex;
   align-items: center;
-   gap: 8px;
-}
-.logo-icon {
-  color: var(--bg);
-  font-size: 22px;
+  color: var(--primary);
+  text-decoration: none;
+  line-height: 1;
 }
 
+.logo-mark {
+  position: relative;
+  display: inline-flex;
+  align-items: baseline;
+  font-family: 'Fraunces', var(--font-serif);
+  font-style: italic;
+  font-weight: 700;
+  font-size: 1.55rem;
+  letter-spacing: -0.025em;
+  font-variation-settings: "opsz" 120, "SOFT" 30;
+  line-height: 1;
+  padding: 0.05em 0;
+}
+
+.logo-n {
+  color: var(--primary);
+}
+
+.logo-m {
+  color: var(--sub);
+  margin-left: -0.18em;
+  transition: transform 0.4s ease;
+}
+
+.logo-mark::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.18em;
+  height: 2px;
+  background: var(--sub);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.45s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.navbar-logo:hover .logo-mark::after {
+  transform: scaleX(1);
+}
+
+.navbar-logo:hover .logo-m {
+  transform: translateX(0.04em);
+}
+
+/* ---------- Nav links ---------- */
 .navbar-links {
   display: flex;
-  gap: 3.2rem;
+  gap: clamp(2.75rem, 6vw, 5.5rem);
   align-items: center;
+  margin-left: auto;
+  margin-right: clamp(1rem, 3vw, 2.5rem);
 }
 
 .navbar-links a {
-  text-decoration: none;
-  font-size: 1.05rem;
-  font-weight: 500;
-  padding: 0.6rem 1.2rem;
-  border-radius: 999px;
-  background-color: rgba(255, 255, 255, 0.15);
-  color: var(--bg);
-  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.35rem;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 400;
+  letter-spacing: -0.005em;
+  color: var(--text);
+  padding: 0.35rem 0;
+  background: transparent;
+  border-radius: 0;
+  position: relative;
+  transition: color 0.25s ease;
 }
 
-.navbar-links a.active,
-.navbar-links a:hover {
-  background-color: var(--bg);
-  color: var(--p2);
-  font-weight: 600;
+.navbar-links .link-num {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  transition: color 0.25s ease;
 }
 
-.navbar-icons {
-  display: flex;
-  gap: 1rem;
-  align-items: center;
+.navbar-links a::after {
+  content: '';
+  position: absolute;
+  left: 0; bottom: -2px;
+  width: 0; height: 1px;
+  background: var(--primary);
+  transition: width 0.3s ease;
 }
 
-.theme-toggle, .menu-toggle {
-  background: none;
+.navbar-links a:hover { color: var(--primary); }
+.navbar-links a:hover .link-num { color: var(--sub); }
+.navbar-links a:hover::after { width: 100%; }
+
+/* ---------- Mobile burger ---------- */
+.navbar-icons { display: flex; align-items: center; }
+
+.menu-toggle {
+  display: none;
+  position: relative;
+  width: 34px;
+  height: 34px;
+  background: transparent;
   border: none;
-  font-size: 1.4rem;
   cursor: pointer;
-  color:var(--bg);
+  z-index: 1101;
 }
+.menu-toggle span {
+  position: absolute;
+  left: 6px;
+  right: 6px;
+  height: 1px;
+  background: var(--primary);
+  transition: transform 0.3s ease, opacity 0.3s ease, top 0.3s ease;
+}
+.menu-toggle span:nth-child(1) { top: 13px; }
+.menu-toggle span:nth-child(2) { top: 21px; }
+.menu-toggle.is-open span:nth-child(1) { top: 17px; transform: rotate(45deg); }
+.menu-toggle.is-open span:nth-child(2) { top: 17px; transform: rotate(-45deg); }
 
-@media (max-width: 768px) {
+/* ---------- Mobile ---------- */
+@media (max-width: 900px) {
+  .menu-toggle { display: block; }
+
   .navbar-links {
     position: fixed;
     top: 0;
     right: -100%;
     height: 100vh;
-    width: 75%;
-    max-width: 300px;
-    background-color: white;
+    width: 78%;
+    max-width: 360px;
+    background: var(--bg);
     flex-direction: column;
-    padding: 2rem 1.5rem;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 3rem 2.5rem;
     gap: 1.5rem;
     z-index: 1100;
-    transition: right 0.4s ease;
-    box-shadow: -4px 0 12px rgba(0, 0, 0, 0.3);
+    transition: right 0.45s cubic-bezier(0.65, 0, 0.35, 1);
+    box-shadow: -8px 0 32px rgba(0, 0, 0, 0.08);
+    border-left: 1px solid var(--border);
   }
-
-  .navbar-links.active {
-    right: 0;
-  }
-.navbar-links a.active,
-.navbar-links a:hover {
-  background-color: var(--primary);
-  color: var(--bg);
-  font-weight: 600;
-}
+  .navbar-links.active { right: 0; }
 
   .navbar-links a {
-    font-size: 1.2rem;
-    text-align: left;
+    font-size: 1.85rem;
+    font-weight: 300;
+    letter-spacing: -0.03em;
     width: 100%;
-  background-color: #9cda9c;
-  color: var(--primary);
-  
+    padding: 0.4rem 0;
+    align-items: baseline;
+    gap: 0.75rem;
   }
-
-  .menu-toggle {
-    display: block;
-  }
+  .navbar-links .link-num { font-size: 0.7rem; }
+  .navbar-links a::after { display: none; }
 
   .overlay {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 1000;
+    inset: 0;
+    background: rgba(20, 20, 20, 0.4);
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
+    z-index: 1050;
     animation: fadeIn 0.3s ease;
   }
-
   @keyframes fadeIn {
     from { opacity: 0; }
-    to { opacity: 1; }
-  }
-}
-
-@media (min-width: 769px) {
-  .menu-toggle {
-    display: none;
-  }
-
-  .overlay {
-    display: none;
+    to   { opacity: 1; }
   }
 }

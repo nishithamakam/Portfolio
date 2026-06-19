@@ -10,6 +10,7 @@ import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import ClickSpark from './components/ClickSpark';
 import { ThemeProvider } from './ThemeContext';
 
 
@@ -18,15 +19,14 @@ function App() {
     <ThemeProvider>
       <Navbar />
       <Hero/>
-      <br></br>
-      <br></br>
- 
+
       <About/>
       <Experience/>
       <Skills/>
       <Projects/>
       <Contact/>
       <Footer/>
+      <ClickSpark />
     </ThemeProvider>
   );
 }
