@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import '../styles/Contact.css';
 import emailjs from 'emailjs-com';
 import { Reveal } from '../hooks/useReveal';
@@ -6,6 +6,19 @@ import { Reveal } from '../hooks/useReveal';
 function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '' });
   const [sending, setSending] = useState(false);
+
+  const leaves = useMemo(() => {
+    const colors = ['var(--sub)', 'var(--primary)', '#6fbf73', '#3f8f47'];
+    const rand = (min, max) => Math.random() * (max - min) + min;
+    return Array.from({ length: 16 }).map(() => ({
+      left: rand(0, 96),
+      size: rand(7, 15),
+      opacity: rand(0.28, 0.55),
+      color: colors[Math.floor(Math.random() * colors.length)],
+      duration: rand(10, 20),
+      delay: -rand(0, 20),
+    }));
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -35,6 +48,23 @@ function Contact() {
 
   return (
     <section id="contact" className="contact-section">
+      <div className="contact-dots" aria-hidden="true">
+        {leaves.map((leaf, i) => (
+          <span
+            key={i}
+            className="contact-leaf"
+            style={{
+              left: `${leaf.left}%`,
+              width: `${leaf.size}px`,
+              height: `${leaf.size}px`,
+              opacity: leaf.opacity,
+              background: leaf.color,
+              animationDuration: `${leaf.duration}s`,
+              animationDelay: `${leaf.delay}s`,
+            }}
+          />
+        ))}
+      </div>
       <div className="contact-inner">
         <header className="section-header">
           <span className="section-eyebrow">

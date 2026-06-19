@@ -7,36 +7,44 @@ function Projects() {
   const projectList = [
     {
       title: 'DocIntel',
+      category: 'AI Platform',
+      monogram: 'DI',
       image: require('../assets/DocIntel1.png'),
       description:
-        'An AI-powered document intelligence platform that uses Retrieval-Augmented Generation (RAG) to analyze, search, summarize, and extract insights from enterprise documents—letting users interact with PDFs through natural language and retrieve context-aware answers with citations.',
+        'An AI-powered document intelligence platform that uses Retrieval-Augmented Generation (RAG) to analyze, search, summarize, and extract insights from enterprise documents—letting users interact with PDFs through natural language and retrieve context-aware answers with citations. Processes 100+ page documents using RAG-based retrieval.',
       tags: ['LLMs', 'RAG', 'Multi-Agent Systems'],
       github: 'https://github.com/nishithamakam/docintel-ai',
       demo: '',
     },
     {
       title: 'Traffic Violation Monitoring',
+      category: 'Computer Vision',
+      monogram: 'TV',
       image: require('../assets/project2.jpg'),
       description:
-        'A vision-based system that detects traffic violations and automatically issues e-challans to offenders.',
+        'A vision-based system that detects traffic violations and automatically issues e-challans to offenders. Detects and tracks vehicle movement in real time.',
       tags: ['Computer Vision', 'Python', 'Automation'],
       github: 'https://github.com/nishithamakam/TrafficVoilationMonitoring',
       demo: '',
     },
     {
       title: 'Cosmic Challenge',
+      category: 'Web App',
+      monogram: 'CC',
       image: require('../assets/cosmicchallenge.jpeg'),
       description:
-        'A web app built for NASA Space Apps 2023 that educates users about the James Webb Space Telescope.',
+        'A web app built for NASA Space Apps 2023 that educates users about the James Webb Space Telescope (JWST). Makes learning about the JWST engaging through interactive games and puzzles.',
       tags: ['React', 'NASA Space Apps', 'Education'],
       github: 'https://github.com/Aish-1311/CosmicChallenge',
       demo: '',
     },
     {
       title: 'Counselling Automation',
+      category: 'Full Stack',
+      monogram: 'CA',
       image: require('../assets/counsellingautomationsite.jpg'),
       description:
-        'A platform that streamlines counseling with performance analysis, appointment management and student support.',
+        'A platform that streamlines counselling with performance analysis, appointment management and student support. Reduces manual counselling workflow through automation.',
       tags: ['Full Stack', 'Analytics', 'Web App'],
       github: 'https://github.com/nishithamakam/Counselling-Automation',
       demo: '',
@@ -65,17 +73,17 @@ function Projects() {
                 target="_blank"
                 rel="noreferrer"
                 aria-label={`${project.title} — open`}
-                data-variant={index % 4}
               >
-                <span className="project-media-index" aria-hidden="true">
-                  {String(index + 1).padStart(2, '0')}
-                </span>
+                <img src={project.image} alt={project.title} loading="lazy" />
                 <span className="project-media-overlay">
                   <FiArrowUpRight />
                 </span>
               </a>
 
               <div className="project-content">
+                <span className="project-index" aria-hidden="true">
+                  {String(index + 1).padStart(2, '0')}
+                </span>
                 <h3 className="project-title">{project.title}</h3>
                 <p className="project-desc">{project.description}</p>
 

@@ -32,6 +32,15 @@
     radial-gradient(circle at 80% 70%, rgba(46, 125, 50, 0.04) 0, transparent 45%);
 }
 
+/* ---------- Floating leaves ---------- */
+.hero-leaves {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
 /* ---------- Meta rows (top + bottom) ---------- */
 .hero-meta {
   position: relative;
@@ -240,6 +249,56 @@
 }
 .btn-primary:hover .btn-arrow-down {
   transform: rotate(-28deg) translateX(2px);
+}
+
+/* download résumé — outlined pill */
+.btn-resume {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.5rem;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  color: var(--primary);
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition: border-color 0.3s ease, color 0.3s ease, background 0.3s ease, transform 0.2s ease;
+}
+.btn-resume svg {
+  font-size: 0.95rem;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.btn-resume:hover {
+  border-color: var(--sub);
+  background: rgba(69, 166, 69, 0.12);
+  color: var(--primary);
+  transform: translateY(-1px);
+}
+.btn-resume:hover svg {
+  transform: translateY(2px);
+}
+
+/* LinkedIn icon — round outline button */
+.btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  color: var(--primary);
+  font-size: 1rem;
+  transition: border-color 0.3s ease, color 0.3s ease, background 0.3s ease, transform 0.2s ease;
+}
+.btn-icon:hover {
+  border-color: var(--sub);
+  background: rgba(69, 166, 69, 0.12);
+  color: var(--primary);
+  transform: translateY(-2px);
 }
 
 .btn-ghost {

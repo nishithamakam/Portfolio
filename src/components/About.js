@@ -11,7 +11,7 @@ function About() {
       <div className="about-inner">
         <header className="section-header">
           <span className="section-eyebrow">
-            <span className="section-line" aria-hidden="true" /> About
+            <span className="section-line" aria-hidden="true" /> A little about me
           </span>
         </header>
 
@@ -44,12 +44,12 @@ function About() {
                 </div>
                 <div>
                   <span className="about-stat-num"><CountUp end={10} suffix="+" /></span>
-                  <span className="about-stat-label">Projects shipped</span>
+                  <span className="about-stat-label">Projects built</span>
                 </div>
               </div>
 
-              <a href="/NishithaMakam_resume.pdf" download className="download-cv">
-                Download CV &rarr;
+              <a href="#contact" className="download-cv">
+                Get in touch &rarr;
               </a>
             </Reveal>
           </div>

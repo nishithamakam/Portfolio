@@ -1,7 +1,6 @@
 import React from 'react';
 import '../styles/Footer.css';
 import { FaEnvelope, FaGithub, FaLinkedin, FaInstagram } from 'react-icons/fa';
-import { Reveal } from '../hooks/useReveal';
 
 function Footer() {
   const year = new Date().getFullYear();
